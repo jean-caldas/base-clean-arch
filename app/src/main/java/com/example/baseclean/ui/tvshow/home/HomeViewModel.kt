@@ -6,9 +6,11 @@ import androidx.lifecycle.viewModelScope
 import com.example.baseclean.domain.models.tvshow.home.TvShow
 import com.example.baseclean.domain.interactors.tvshow.home.TvShowInteractors
 import com.example.baseclean.ui.common.models.DataState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class HomeViewModel
 @Inject
 constructor(

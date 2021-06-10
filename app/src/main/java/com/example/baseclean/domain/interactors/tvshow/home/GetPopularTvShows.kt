@@ -1,7 +1,16 @@
 package com.example.baseclean.domain.interactors.tvshow.home
 
-import com.example.baseclean.domain.gateways.tvshow.TvShowRepository
+import com.example.baseclean.di.RemoteTvShow
+import com.example.baseclean.domain.gateways.tvshow.TvShowDataSource
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class GetPopularTvShows (private val repository: TvShowRepository) {
-    suspend operator fun invoke() = repository.getPopularTvShows()
+@Singleton
+class GetPopularTvShows
+@Inject
+constructor() {
+    @RemoteTvShow
+    @Inject
+    lateinit var source: TvShowDataSource
+    suspend operator fun invoke() = source.getAll()
 }

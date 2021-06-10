@@ -3,8 +3,10 @@ package com.example.baseclean.data.tvshow.network
 import com.example.baseclean.domain.gateways.tvshow.TvShowDataSource
 import com.example.baseclean.domain.models.tvshow.home.TvShow
 import javax.inject.Inject
+import javax.inject.Singleton
 
-class TvShowRemoteDataSource
+@Singleton
+class TvShowNetworkDataSource
 @Inject
 constructor(
     private val tvShowRetrofit: TvShowRetrofit,
