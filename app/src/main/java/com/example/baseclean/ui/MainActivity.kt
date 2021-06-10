@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.baseclean.R
 import com.example.baseclean.databinding.ActivityMainBinding
 import com.example.baseclean.domain.models.tvshow.home.TvShow
 import com.example.baseclean.ui.common.models.DataState
@@ -17,12 +18,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Thread.sleep(1000)
+        setTheme(R.style.Theme_BaseClean)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        subscribeObservers()
-        model.getPupularTvShows()
+        //subscribeObservers()
+        //model.getPupularTvShows()
     }
 
     private fun subscribeObservers() {
