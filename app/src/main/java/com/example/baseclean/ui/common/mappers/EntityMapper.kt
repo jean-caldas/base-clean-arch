@@ -1,4 +1,4 @@
-package com.example.baseclean.framework.common.mappers
+package com.example.baseclean.ui.common.mappers
 
 interface EntityMapper<Entity, DomainModel> {
     fun mapFromEntity(entity: Entity): DomainModel

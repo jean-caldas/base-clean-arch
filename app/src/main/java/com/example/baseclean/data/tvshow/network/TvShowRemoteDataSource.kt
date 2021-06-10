@@ -1,6 +1,6 @@
-package com.example.baseclean.framework.datasource.tvshow.network
+package com.example.baseclean.data.tvshow.network
 
-import com.example.baseclean.domain.data.tvshow.TvShowDataSource
+import com.example.baseclean.domain.gateways.tvshow.TvShowDataSource
 import com.example.baseclean.domain.models.tvshow.home.TvShow
 import javax.inject.Inject
 

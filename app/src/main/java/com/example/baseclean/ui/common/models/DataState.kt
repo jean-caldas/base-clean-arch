@@ -1,4 +1,4 @@
-package com.example.baseclean.framework.common
+package com.example.baseclean.ui.common.models
 
 import java.lang.Exception
 

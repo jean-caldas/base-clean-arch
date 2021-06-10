@@ -1,7 +1,7 @@
-package com.example.baseclean.domain.data.tvshow
+package com.example.baseclean.domain.gateways.tvshow
 
 import com.example.baseclean.domain.models.tvshow.home.TvShow
-import com.example.baseclean.framework.common.DataState
+import com.example.baseclean.ui.common.models.DataState
 
 class TvShowRepository(private val dataSource: TvShowDataSource) {
 

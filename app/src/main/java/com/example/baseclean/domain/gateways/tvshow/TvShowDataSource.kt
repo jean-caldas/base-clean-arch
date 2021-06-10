@@ -1,4 +1,4 @@
-package com.example.baseclean.domain.data.tvshow
+package com.example.baseclean.domain.gateways.tvshow
 
 import com.example.baseclean.domain.models.tvshow.home.TvShow
 

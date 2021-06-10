@@ -1,11 +1,11 @@
-package com.example.baseclean.framework.presentation.tvshow.home
+package com.example.baseclean.ui.tvshow.home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.baseclean.domain.models.tvshow.home.TvShow
 import com.example.baseclean.domain.interactors.tvshow.home.TvShowInteractors
-import com.example.baseclean.framework.common.DataState
+import com.example.baseclean.ui.common.models.DataState
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

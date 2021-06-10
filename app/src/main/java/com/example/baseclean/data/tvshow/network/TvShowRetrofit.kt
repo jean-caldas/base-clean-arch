@@ -1,4 +1,4 @@
-package com.example.baseclean.framework.datasource.tvshow.network
+package com.example.baseclean.data.tvshow.network
 
 import retrofit2.http.GET
 

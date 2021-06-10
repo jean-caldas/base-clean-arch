@@ -1,7 +1,7 @@
-package com.example.baseclean.framework.datasource.tvshow.network
+package com.example.baseclean.data.tvshow.network
 
 import com.example.baseclean.domain.models.tvshow.home.TvShow
-import com.example.baseclean.framework.common.mappers.EntityMapper
+import com.example.baseclean.ui.common.mappers.EntityMapper
 import javax.inject.Inject
 
 class TvShowMapper @Inject constructor() : EntityMapper<TvShowNetworkEntity, TvShow> {
