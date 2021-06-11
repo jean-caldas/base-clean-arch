@@ -1,16 +1,23 @@
 package com.example.baseclean.domain.interactors.tvshow.home
 
-import com.example.baseclean.di.RemoteTvShow
-import com.example.baseclean.domain.gateways.tvshow.TvShowDataSource
+import com.example.baseclean.domain.gateways.tvshow.TvShowContract
+import com.example.baseclean.domain.models.tvshow.home.TvShow
+import com.example.baseclean.ui.common.models.DataState
 import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
 class GetPopularTvShows
 @Inject
 constructor() {
-    @RemoteTvShow
+    //@RemoteTvShow
     @Inject
-    lateinit var source: TvShowDataSource
-    suspend operator fun invoke() = source.getAll()
+    lateinit var source: TvShowContract
+
+    suspend operator fun invoke(): DataState<List<TvShow>> {
+        return try {
+            val tvShows = source.getAll()
+            DataState.Success(tvShows)
+        } catch (e: Exception) {
+            DataState.Error(e)
+        }
+    }
 }
