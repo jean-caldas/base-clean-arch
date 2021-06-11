@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/homeFragment"
         tools:layout="@layout/home_fragment"
-        android:name="com.example.baseclean.framework.presentation.tvshow.home.HomeFragment"
+        android:name="com.example.baseclean.ui.tvshow.home.HomeFragment"
         android:label="HomeFragment" />
 </navigation>
