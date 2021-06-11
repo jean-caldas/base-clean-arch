@@ -1,30 +1,39 @@
-package com.example.baseclean.ui
+package com.example.baseclean.ui.tvshow.trending
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import com.example.baseclean.R
-import com.example.baseclean.databinding.ActivityMainBinding
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.example.baseclean.databinding.TvshowTrendingBinding
 import com.example.baseclean.domain.models.tvshow.home.TvShow
 import com.example.baseclean.ui.common.models.DataState
 import com.example.baseclean.ui.tvshow.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class TrendingFragment : Fragment() {
 
+    private lateinit var binding: TvshowTrendingBinding
     private val model: HomeViewModel by viewModels()
-    private lateinit var binding: ActivityMainBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = TvshowTrendingBinding.inflate(inflater)
+        return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
 
         subscribeObservers()
         model.getPupularTvShows()
     }
+
 
     private fun subscribeObservers() {
         model.dataState.observe(this, {
@@ -46,7 +55,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayError(message: String?) {
-        binding.text.text = message ?: "Unknown error"
+        binding.textView.text = message ?: "Unknown error"
     }
 
     private fun displayProgressBar(display: Boolean) {
@@ -56,6 +65,6 @@ class MainActivity : AppCompatActivity() {
     private fun displayShowNames(tvShows: List<TvShow>) {
         val sb = StringBuilder()
         for (tvShow in tvShows) sb.appendLine(tvShow.name)
-        binding.text.text = sb.toString()
+        binding.textView.text = sb.toString()
     }
 }
