@@ -44,7 +44,7 @@ class TrendingFragment : Fragment() {
                 }
                 is DataState.Error -> {
                     displayProgressBar(false)
-                    displayError(it.exception.message)
+                    displayError(it.message)
                 }
                 is DataState.Loading -> {
                     displayProgressBar(true)

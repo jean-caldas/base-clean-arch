@@ -3,6 +3,7 @@ package com.example.baseclean.domain.interactors.tvshow.home
 import com.example.baseclean.domain.gateways.tvshow.TvShowContract
 import com.example.baseclean.domain.models.tvshow.home.TvShow
 import com.example.baseclean.ui.common.models.DataState
+import com.example.baseclean.ui.common.models.ErrorType
 import javax.inject.Inject
 
 class GetPopularTvShows
@@ -17,7 +18,7 @@ constructor() {
             val tvShows = source.getAll()
             DataState.Success(tvShows)
         } catch (e: Exception) {
-            DataState.Error(e)
+            DataState.Error(ErrorType.NETWORK, e.hashCode(), e.message)
         }
     }
 }
