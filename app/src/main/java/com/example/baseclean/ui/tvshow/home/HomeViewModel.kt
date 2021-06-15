@@ -21,7 +21,7 @@ constructor(
     val dataState
         get() = _dataState
 
-    fun getPupularTvShows() {
+    fun getPopularTvShows() {
         viewModelScope.launch {
             _dataState.value = interactors.getPopularTvShows.invoke()
         }

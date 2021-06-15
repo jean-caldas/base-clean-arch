@@ -31,7 +31,7 @@ class TrendingFragment : Fragment() {
         super.onStart()
 
         subscribeObservers()
-        model.getPupularTvShows()
+        model.getPopularTvShows()
     }
 
 
