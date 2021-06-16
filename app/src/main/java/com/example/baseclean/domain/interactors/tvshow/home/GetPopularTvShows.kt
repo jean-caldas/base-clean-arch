@@ -2,8 +2,8 @@ package com.example.baseclean.domain.interactors.tvshow.home
 
 import com.example.baseclean.domain.gateways.tvshow.TvShowContract
 import com.example.baseclean.domain.models.tvshow.home.TvShow
-import com.example.baseclean.ui.common.models.DataState
-import com.example.baseclean.ui.common.models.ErrorType
+import com.example.baseclean.domain.common.models.DataState
+import com.example.baseclean.domain.common.models.ErrorType
 import javax.inject.Inject
 
 class GetPopularTvShows

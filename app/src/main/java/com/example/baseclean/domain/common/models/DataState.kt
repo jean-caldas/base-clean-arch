@@ -1,4 +1,4 @@
-package com.example.baseclean.ui.common.models
+package com.example.baseclean.domain.common.models
 
 enum class ErrorType { NETWORK, NOT_FOUND, UNKNOWN }
 

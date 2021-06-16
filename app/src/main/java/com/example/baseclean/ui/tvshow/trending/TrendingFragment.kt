@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.baseclean.databinding.TvshowTrendingBinding
 import com.example.baseclean.domain.models.tvshow.home.TvShow
-import com.example.baseclean.ui.common.models.DataState
+import com.example.baseclean.domain.common.models.DataState
 import com.example.baseclean.ui.tvshow.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
