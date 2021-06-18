@@ -5,5 +5,6 @@ import javax.inject.Singleton
 
 @Singleton
 class TvShowInteractors @Inject constructor(
-    val getPopularTvShows: GetPopularTvShows
+    val getPopular: GetPopular,
+    val getTopRated: GetTopRated
 )
