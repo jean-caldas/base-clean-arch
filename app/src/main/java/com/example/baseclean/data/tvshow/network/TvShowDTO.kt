@@ -1,3 +1,3 @@
 package com.example.baseclean.data.tvshow.network
 
-data class TvShowDTO(var id: Int, var name: String)
+data class TvShowDTO(var id: Int, var name: String, var poster_path: String)

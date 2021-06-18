@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_tmdb_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BaseClean">
-        <activity android:name=".ui.tvshow.TvShowActivity">
+        <activity android:name=".ui.tvshow.TvShowActivity" android:configChanges="orientation|keyboardHidden|screenLayout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

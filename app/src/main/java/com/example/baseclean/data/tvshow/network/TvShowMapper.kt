@@ -8,14 +8,16 @@ class TvShowMapper @Inject constructor() : EntityMapper<TvShowDTO, TvShow> {
     override fun mapFromEntity(entity: TvShowDTO): TvShow {
         return TvShow(
             id = entity.id,
-            name = entity.name
+            name = entity.name,
+            urlImage = entity.poster_path
         )
     }
 
     override fun mapToEntity(domainModel: TvShow): TvShowDTO {
         return TvShowDTO(
             id = domainModel.id,
-            name = domainModel.name
+            name = domainModel.name,
+            poster_path = domainModel.urlImage
         )
     }
 

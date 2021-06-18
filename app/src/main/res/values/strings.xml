@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BaseClean</string>
+    <string name="url_path">https://image.tmdb.org/t/p/original</string>
 </resources>
