@@ -1,23 +1,23 @@
 package com.example.baseclean.ui.tvshow.trending
 
-import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.baseclean.R
 import com.example.baseclean.databinding.TvshowTrendingBinding
-import com.example.baseclean.domain.models.tvshow.home.TvShow
 import com.example.baseclean.domain.common.models.DataState
 import com.example.baseclean.ui.common.mappers.PORTRAIT
 import com.example.baseclean.ui.tvshow.home.HomeViewModel
 import com.example.baseclean.ui.tvshow.trending.epoxy.TvShowController
+import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
+
+const val TV_POPULAR = 0
+const val TV_TOP_RATED = 1
 
 @AndroidEntryPoint
 class TrendingFragment : Fragment() {
@@ -43,12 +43,26 @@ class TrendingFragment : Fragment() {
 
         binding.epoxyTvShowsRecycler.layoutManager = GridLayoutManager(requireContext(), spanCount)
 
-        return binding.root
-    }
+        binding.seriesSelectionTab.addOnTabSelectedListener(object :
+            TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                displayProgressBar(true)
+                when(tab?.position){
+                    TV_POPULAR -> {
+                        model.getPopularTvShows()
+                    }
+                    TV_TOP_RATED -> {
+                        model.getTopRatedShows()
+                    }
+                }
+            }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        Toast.makeText(requireContext(), "CAMBIO CONFIG DESDE FRAGMENT", Toast.LENGTH_LONG).show()
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+
+        })
+
+        return binding.root
     }
 
     override fun onStart() {
@@ -57,13 +71,11 @@ class TrendingFragment : Fragment() {
         model.getPopularTvShows()
     }
 
-
     private fun subscribeObservers() {
         model.dataState.observe(this, {
             when (it) {
                 is DataState.Success -> {
                     displayProgressBar(false)
-                    //displayShowNames(it.data)
                     epoxyTvShowController.tvShows = it.data
                 }
                 is DataState.Error -> {

@@ -9,21 +9,54 @@
         android:background="@color/black">
 
 
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/seriesSelectionTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tabMode="auto"
+            app:tabTextColor="@color/purple_500">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tvPopular"
+                android:tag="TvPopular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/popularTvTitle" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tvTopRated"
+                android:tag="TopRated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/topRatedTvTitle" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+
         <com.airbnb.epoxy.EpoxyRecyclerView
             android:id="@+id/epoxyTvShowsRecycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:overScrollMode="never"
-            android:paddingBottom="24dp" />
+            android:paddingBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seriesSelectionTab" />
 
-        <ProgressBar
+        <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:lottie_fileName="movie_loader.json"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

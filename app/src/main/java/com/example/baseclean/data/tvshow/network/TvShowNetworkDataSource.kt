@@ -7,8 +7,8 @@ class TvShowNetworkDataSource(
     private val tvShowService: TvShowService,
     private val tvShowMapper: TvShowMapper
 ) : TvShowContract {
-    override suspend fun getAll(): List<TvShow> {
-        val result = tvShowService.getPopularTvShows()
+    override suspend fun getTvShows(endPoint: String): List<TvShow> {
+        val result = tvShowService.getTvShows(endPoint)
         return tvShowMapper.mapFromResult(result)
     }
 }

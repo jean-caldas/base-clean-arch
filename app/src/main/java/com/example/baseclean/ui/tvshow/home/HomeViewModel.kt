@@ -23,7 +23,13 @@ constructor(
 
     fun getPopularTvShows() {
         viewModelScope.launch {
-            _dataState.value = interactors.getPopularTvShows.invoke()
+            _dataState.value = interactors.getPopular.invoke()
+        }
+    }
+
+    fun getTopRatedShows() {
+        viewModelScope.launch {
+            _dataState.value = interactors.getTopRated.invoke()
         }
     }
 }
